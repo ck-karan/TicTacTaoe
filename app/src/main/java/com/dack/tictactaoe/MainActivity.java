@@ -66,6 +66,18 @@ public class MainActivity extends AppCompatActivity {
                 status.setText(winner);
             }
         }
+        boolean flag = true; //draw
+        //check draw / tie game
+        for(int loc : locations){
+            if(loc == 0) {
+                flag = false; // not draw
+            }
+        }
+        if(flag){
+            TextView status = findViewById(R.id.status);
+            status.setText("Match is draw. Tap to restart!");
+            activeGame = false;
+        }
     }
 
     private void gameReset(View view) {
